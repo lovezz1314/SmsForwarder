@@ -94,7 +94,7 @@ custom_domains = smsf.demo.com
                         val now = System.currentTimeMillis().toString()
                         val webhookSetting = """{"method":"POST","webServer":"http://xx.xmgsvdnkpf.cn/mpayNotify","secret":"345358030c5aa597ecba31fc3904979b","response":"200","webParams":"{\\\"action\\\":\\\"mpay\\\",\\\"data\\\":\\\"{\\\\\\\"pid\\\\\\\":\\\\\\\"1000\\\\\\\",\\\\\\\"aid\\\\\\\":\\\\\\\"1\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"微信收款助手\\\\\\\",\\\\\\\"msg\\\\\\\":\\\\\\\"[content]\\\\\\\"}\\\",\\\"time\\\":\\\"[timestamp]\\\",\\\"sign\\\":\\\"[sign]\\\"}","headers":{},"proxyType":"DIRECT","proxyHost":"","proxyPort":"","proxyAuthenticator":false,"proxyUsername":"","proxyPassword":""}"""
                         db.execSQL("INSERT INTO \"Sender\" VALUES (1, 3, 'mpay支付通知', '" + webhookSetting + "', 1, " + now + ")")
-                        db.execSQL("INSERT INTO \"Rule\" VALUES (1, 'app', '微信收款通知', 'appName', 'is', '微信', 1, '1', 'ALL', '[content]', '', 'ALL', 1, 0, 0, '', " + now + ")")
+                        db.execSQL("INSERT INTO \"Rule\" VALUES (1, 'app', '微信支付通知', 'multiMatch', 'is', '并且 是 APP包名 相等 com.tencent.mm\n并且 是 通知标题 相等 微信支付', 1, '1', 'ALL', '[content]', '', 'ALL', 1, 0, 0, '', " + now + ")")
                     }
                 }).addMigrations(
                     MIGRATION_1_2,
