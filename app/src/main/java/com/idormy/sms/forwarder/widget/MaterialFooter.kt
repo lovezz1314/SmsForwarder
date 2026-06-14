@@ -11,7 +11,6 @@ import com.scwang.smartrefresh.layout.api.RefreshKernel
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.constant.RefreshState
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle
-import com.scwang.smartrefresh.layout.util.DensityUtil
 
 /**
  * Material风格的上拉加载
@@ -27,7 +26,7 @@ class MaterialFooter @JvmOverloads constructor(context: Context?, attrs: Attribu
             FrameLayout.LayoutParams.MATCH_PARENT,
             FrameLayout.LayoutParams.WRAP_CONTENT
         )
-        setPadding(0, DensityUtil.dp2px(10f), 0, DensityUtil.dp2px(10f))
+        setPadding(0, (10f * resources.displayMetrics.density).toInt(), 0, (10f * resources.displayMetrics.density).toInt())
         layoutParams = params
     }
 
